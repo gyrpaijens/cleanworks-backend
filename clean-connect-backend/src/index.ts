@@ -6,7 +6,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000', // zorg ervoor dat dit de juiste frontend-URL is
+}));
 app.use(express.json());
 import cleanerRoutes from './routes/CleanerRoutes';
 app.use('/api/cleaners', cleanerRoutes);

@@ -17,6 +17,8 @@ router.get('/', async (_req: Request, res: Response) => {
 router.post('/', async (req: Request, res: Response) => {
     try {
         const { name, region } = req.body;
+        console.log(name, region)
+
         const newCleaner = new Cleaner({ name, region });
         const savedCleaner = await newCleaner.save();
         res.status(201).json(savedCleaner);
